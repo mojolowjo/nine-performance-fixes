@@ -1,0 +1,50 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="MIT"
+issueTrackerURL="https://github.com/mojolowjo/nine-performance-fixes/issues"
+
+[[mods]]
+modId="ninefix"
+version="1.0.0"
+displayName="NINE Performance Fixes"
+authors="mojolowjo"
+displayURL="https://github.com/mojolowjo/nine-performance-fixes"
+description='''
+Client-only performance fixes for the NINE modpack:
+ - Makes GeckoLib skip resource folders it cannot read (for example Mining & Placing
+   Animations), so GeckoLib mobs animate again and stop writing an error to the log
+   every frame.
+ - Stops ArPhEx from rebuilding the same sphere mesh twice every frame.
+Not needed on servers. Safe to add or remove at any time.
+'''
+
+[[mixins]]
+config="ninefix.mixins.json"
+
+[[dependencies.ninefix]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.0,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.ninefix]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1,1.21.2)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.ninefix]]
+    modId="geckolib"
+    type="optional"
+    versionRange="[4.0,)"
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.ninefix]]
+    modId="arphex"
+    type="optional"
+    versionRange="[5.0,)"
+    ordering="NONE"
+    side="CLIENT"
