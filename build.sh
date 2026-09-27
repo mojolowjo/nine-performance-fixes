@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 VERSION=$(sed -n 's/^version="\(.*\)"$/\1/p' src/main/resources/META-INF/neoforge.mods.toml | head -n 1)
-BUILD_DATE="2026-09-27T00:00:00Z"   # fixed timestamp for reproducible jars; bump with each release
+BUILD_DATE="2026-09-27T05:00:00Z"   # fixed timestamp for reproducible jars; bump with each release
 JAR="build/libs/ninefix-${VERSION}.jar"
 
 rm -rf build
@@ -16,6 +16,18 @@ javac --release 17 -encoding UTF-8 -d build/stubs $(find stubs -name '*.java' | 
 javac --release 17 -encoding UTF-8 -Xlint:all -cp build/stubs -d build/classes $(find src/main/java -name '*.java' | sort)
 cp -R src/main/resources/. build/classes/
 cp LICENSE build/classes/LICENSE
+
+# Guard: in Mixin 0.8.7 (what NeoForge 21.1 ships) @ModifyArg and @Redirect take ONE @At.
+# Storing a list there can crash the game while loading (MixinExtras casts it to a single value),
+# so refuse to build if any mixin does that.
+for cls in $(cd build/classes && find . -path '*/mixin/*.class' | sed 's#^\./##; s#\.class$##; s#/#.#g'); do
+  if javap -v -p -cp build/classes "$cls" \
+      | awk '/injection\.(ModifyArg|Redirect)\(/ { f = 1 } f && / at=/ { print; f = 0 }' \
+      | grep -q 'at=\[@'; then
+    echo "ERROR: $cls: @ModifyArg/@Redirect 'at' must be a single @At for Mixin 0.8.7" >&2
+    exit 1
+  fi
+done
 
 cat > build/MANIFEST.MF <<MF
 Manifest-Version: 1.0

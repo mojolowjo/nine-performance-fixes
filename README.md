@@ -52,8 +52,12 @@ different.
 ### For the NINE pack's `assets.txt`
 
 ```
-mods|ninefix-1.0.0.jar|<sha1 from the release notes>|https://github.com/mojolowjo/nine-performance-fixes/releases/download/v1.0.0/ninefix-1.0.0.jar
+mods|ninefix-1.0.1.jar|<sha1 from the release notes>|https://github.com/mojolowjo/nine-performance-fixes/releases/download/v1.0.1/ninefix-1.0.1.jar
 ```
+
+> **1.0.1 status:** same code as 1.0.0 (which was tested in-game and profiled), rebuilt with a
+> corrected annotation format. 1.0.1 itself has not been launched in-game yet; see the
+> [changelog](CHANGELOG.md).
 
 ## Checking that it works
 
@@ -70,6 +74,7 @@ mods|ninefix-1.0.0.jar|<sha1 from the release notes>|https://github.com/mojolowj
 | Minecraft | 1.21.1 |
 | NeoForge | 21.1.x (profiled on 21.1.249) |
 | GeckoLib | 4.x (verified against 4.9.2) — optional |
+| Mixin | 0.8.7 (bundled with NeoForge 21.1) |
 | ArPhEx | 5.0.2 — optional |
 
 Both fixes are defensive. If GeckoLib or ArPhEx is missing, or ArPhEx changes that code in a

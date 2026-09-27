@@ -5,7 +5,7 @@ issueTrackerURL="https://github.com/mojolowjo/nine-performance-fixes/issues"
 
 [[mods]]
 modId="ninefix"
-version="1.0.0"
+version="1.0.1"
 displayName="NINE Performance Fixes"
 authors="mojolowjo"
 displayURL="https://github.com/mojolowjo/nine-performance-fixes"
