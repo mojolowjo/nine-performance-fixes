@@ -11,7 +11,9 @@ public final class LoggerFactory {
             public void info(String m) { System.out.println("  [INFO] " + m); }
             public void info(String m, Object a) { System.out.println("  [INFO] " + fmt(m, a)); }
             public void info(String m, Object a, Object b) { System.out.println("  [INFO] " + fmt(m, a, b)); }
+            public void info(String m, Object... a) { System.out.println("  [INFO] " + fmt(m, a)); }
             public void warn(String m) { System.out.println("  [WARN] " + m); }
+            public void warn(String m, Object a) { System.out.println("  [WARN] " + fmt(m, a)); }
             public void warn(String m, Object a, Object b) { System.out.println("  [WARN] " + fmt(m, a, b)); }
             public void warn(String m, Throwable t) { System.out.println("  [WARN] " + m + " " + t); }
         };

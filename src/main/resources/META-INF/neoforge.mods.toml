@@ -5,17 +5,22 @@ issueTrackerURL="https://github.com/mojolowjo/nine-performance-fixes/issues"
 
 [[mods]]
 modId="ninefix"
-version="1.0.1"
+version="1.1.0"
 displayName="NINE Performance Fixes"
 authors="mojolowjo"
 displayURL="https://github.com/mojolowjo/nine-performance-fixes"
+# Optional on either side (it adds no network channels): players and servers can each have it or not.
 description='''
-Client-only performance fixes for the NINE modpack:
- - Makes GeckoLib skip resource folders it cannot read (for example Mining & Placing
-   Animations), so GeckoLib mobs animate again and stop writing an error to the log
-   every frame.
- - Stops ArPhEx from rebuilding the same sphere mesh twice every frame.
-Not needed on servers. Safe to add or remove at any time.
+Performance fixes for the NINE modpack, each with an on/off switch
+(Mods -> NINE Performance Fixes -> Config; restart after changes):
+ - GeckoLib: skip resource folders it can't read, so its mobs animate again
+ - ArPhEx: build its sphere once; search for mob trophies once a second
+ - FancyMenu / SpiffyHUD: remember screen lookups
+ - SkillExpNotifier: keep its config in memory
+ - KubeJS: skip idle highlight buffers; don't start its web server
+ - VanillaBackport: no throwaway colour caches
+ - Distant Horizons: use at most half the CPU
+ - The Obsessed (server): stop resending player data dozens of times per tick
 '''
 
 [[mixins]]
@@ -26,25 +31,11 @@ config="ninefix.mixins.json"
     type="required"
     versionRange="[21.1.0,)"
     ordering="NONE"
-    side="CLIENT"
+    side="BOTH"
 
 [[dependencies.ninefix]]
     modId="minecraft"
     type="required"
     versionRange="[1.21.1,1.21.2)"
     ordering="NONE"
-    side="CLIENT"
-
-[[dependencies.ninefix]]
-    modId="geckolib"
-    type="optional"
-    versionRange="[4.0,)"
-    ordering="NONE"
-    side="CLIENT"
-
-[[dependencies.ninefix]]
-    modId="arphex"
-    type="optional"
-    versionRange="[5.0,)"
-    ordering="NONE"
-    side="CLIENT"
+    side="BOTH"

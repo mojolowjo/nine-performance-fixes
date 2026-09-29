@@ -48,7 +48,7 @@ public final class ScanTest {
         if (arphex != null && !arphex.isEmpty()) Files.copy(Paths.get(arphex), mods.resolve("arphex.jar"));
 
         System.setProperty("ninefix.gameDir", game.toString());
-        new NineFix();
+        GeckoLibFix.run();
 
         Set<String> expected = new TreeSet<>(Set.of("mining_and_placing_animations", "sneaky", "rpbad"));
         System.out.println("Skipped namespaces: " + GeckoLibCache.EXCLUDED);

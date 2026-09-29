@@ -1,5 +1,24 @@
 # Changelog
 
+## 1.1.0 — 2026-09-28
+
+- **Settings screen:** Mods → NINE Performance Fixes → Config has an on/off switch for every fix
+  (stored in `config/ninefix-startup.toml`; restart after changes). A switched-off fix isn't patched in.
+- **Now loads on servers too**, for the new server-side fix below. Still optional on either side.
+- New fixes, all found with a Java Flight Recorder profile of a 10-minute session on the NINE server:
+  - **The Obsessed** (server): its player data was resent dozens of times per tick (~19 MB/s of game
+    data per player). Now sent at most once per tick per player, with the end-of-tick values.
+  - **Distant Horizons:** capped at half the CPU threads (the pack's config let it use every core, and
+    the CPU sat at 100%).
+  - **KubeJS:** its developer web server isn't started (its loop kept ~3/4 of a core busy).
+  - **VanillaBackport:** no more throwaway colour cache per leaf block (~7% of all memory garbage).
+  - **FancyMenu / SpiffyHUD** screen lookups, **ArPhEx** trophy search, **SkillExpNotifier** config
+    reading and **KubeJS** idle highlight buffers (render-thread fixes from earlier profiles).
+- `tools/verify_targets.py` checks every Mixin and every call into the fixed mods against their jars.
+
+> **Not yet tested in-game.** Every Mixin target and call was checked against the exact mod versions
+> in NINE 0.0.5, and the logic is covered by tests, but nobody has launched the game with 1.1.0 yet.
+
 ## 1.0.1 — 2026-09-27
 
 - **Build fix, no behaviour change.** The `@ModifyArg` patch now stores its injection point as a

@@ -6,7 +6,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 
 VERSION=$(sed -n 's/^version="\(.*\)"$/\1/p' src/main/resources/META-INF/neoforge.mods.toml | head -n 1)
-BUILD_DATE="2026-09-27T05:00:00Z"   # fixed timestamp for reproducible jars; bump with each release
+BUILD_DATE="2026-09-29T03:00:00Z"   # fixed timestamp for reproducible jars; bump with each release
 JAR="build/libs/ninefix-${VERSION}.jar"
 
 rm -rf build
