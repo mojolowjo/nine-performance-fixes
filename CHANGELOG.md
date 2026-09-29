@@ -16,8 +16,9 @@
     reading and **KubeJS** idle highlight buffers (render-thread fixes from earlier profiles).
 - `tools/verify_targets.py` checks every Mixin and every call into the fixed mods against their jars.
 
-> **Not yet tested in-game.** Every Mixin target and call was checked against the exact mod versions
-> in NINE 0.0.5, and the logic is covered by tests, but nobody has launched the game with 1.1.0 yet.
+> **Tested on players' PCs, not yet on a server.** 1.1.0 has run in-game on Windows and Linux. The
+> server-side The Obsessed fix hasn't been run on a dedicated server yet. Every Mixin target and call
+> was also checked against the exact mod versions in NINE 0.0.5.
 
 ## 1.0.1 — 2026-09-27
 

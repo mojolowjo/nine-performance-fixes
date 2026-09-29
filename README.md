@@ -35,8 +35,8 @@ The mod adds no network channels, so players and servers can each have it or not
 2. Put it in the `mods` folder of the game (in Prism Launcher: right-click the instance → **Folder** →
    `minecraft` → `mods`), and in the server's `mods` folder.
 
-> **1.1.0 status:** built and checked against the real mod jars, but not launched in-game yet; see
-> the [changelog](CHANGELOG.md).
+> **1.1.0 status:** runs in-game on players' PCs; the server-side fix hasn't been tried on a
+> dedicated server yet. See the [changelog](CHANGELOG.md).
 
 ### For the NINE pack's `assets.txt`
 
