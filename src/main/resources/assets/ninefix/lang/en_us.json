@@ -20,6 +20,8 @@
   "ninefix.configuration.vanillaBackportLeafTint.tooltip": "VanillaBackport builds a brand-new colour cache for every leaf block Distant Horizons draws and throws it away. Work the colour out directly instead (same colour). Restart the game to apply.",
   "ninefix.configuration.distantHorizonsThreadCap": "Distant Horizons: use at most half the CPU",
   "ninefix.configuration.distantHorizonsThreadCap.tooltip": "The pack lets Distant Horizons use every CPU core, which starves the game while it loads distant terrain. Cap it at half your CPU threads (its own default). Doesn't change its config file. Restart the game to apply.",
+  "ninefix.configuration.punchyDebugLog": "Punchy: stop debug log spam",
+  "ninefix.configuration.punchyDebugLog.tooltip": "Punchy writes a debug line (\"[Punchy Glow Definition] ...\") to the log about once a second per arm, and has no setting to turn it off. Don't write it. Restart the game to apply.",
   "ninefix.configuration.obsessedNetworkFix": "The Obsessed: stop the network flood (server)",
   "ninefix.configuration.obsessedNetworkFix.tooltip": "The Obsessed resends each player's data dozens of times per tick, flooding the connection. Send it once per tick, with the latest values. Only does something on the server (or in single player). Restart the game to apply."
 }
