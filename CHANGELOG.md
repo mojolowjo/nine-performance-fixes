@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.2.0 — 2026-10-03
+
+- New fix, **Punchy** (2.8b to 2.8d): two leftover debug lines, `[Punchy Glow Definition] ...` and
+  `[Punchy Glow Render] ...`, were written to `latest.log` about once a second per arm whenever
+  Punchy's particles were on, and Punchy has no setting for them. They're no longer written.
+  Particles are unchanged. Switch: **Punchy: stop debug log spam** (`punchyDebugLog`).
+
+> **Not yet tested in-game.** The new Mixin's targets were checked against the real Punchy 2.8b
+> (the version in NINE), 2.8c and 2.8d jars with `tools/verify_targets.py`, and the automated tests
+> pass, but nobody has launched the game with 1.2.0 yet.
+
 ## 1.1.0 — 2026-09-28
 
 - **Settings screen:** Mods → NINE Performance Fixes → Config has an on/off switch for every fix

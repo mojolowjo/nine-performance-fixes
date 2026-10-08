@@ -23,6 +23,7 @@ the game. The switches are stored in `config/ninefix-startup.toml`, which can al
 | KubeJS: turn off the web server | Starts a web server for script developers whose accept loop never waits: ~¾ of a CPU core busy, nonstop. | Doesn't start it (same as `"enabled": false` in `kubejs/config/web_server.json`). |
 | VanillaBackport: no throwaway colour caches | Builds a brand-new colour cache for every leaf block Distant Horizons colours, uses it once and throws it away (~7% of all memory garbage). | Computes the colour directly. Same colour. |
 | Distant Horizons: use at most half the CPU | The pack's config lets Distant Horizons use every core; on a 6-core PC the CPU sat at 100% for a whole session. | Caps Distant Horizons at half the CPU threads (its own default) through its API. Its config file isn't changed. |
+| Punchy: stop debug log spam | Two leftover debug lines, `[Punchy Glow Definition] ...` and `[Punchy Glow Render] ...`, go to `latest.log` about once a second per arm whenever its particles are on. Punchy has no setting for them. | Skips the two methods that write them. Particles are unchanged. |
 | The Obsessed: stop the network flood *(server)* | The Obsessed resends each player's whole variable set, including stored chat text, dozens of times per tick: ~19 MB of game data per second per player. | Sends it at most once per tick per player, with the values as they are at the end of the tick. |
 
 The Obsessed fix runs where the data is sent from: on the **server**, or in single player. Players
@@ -35,8 +36,8 @@ The mod adds no network channels, so players and servers can each have it or not
 2. Put it in the `mods` folder of the game (in Prism Launcher: right-click the instance → **Folder** →
    `minecraft` → `mods`), and in the server's `mods` folder.
 
-> **1.1.0 status:** runs in-game on players' PCs; the server-side fix hasn't been tried on a
-> dedicated server yet. See the [changelog](CHANGELOG.md).
+> **1.2.0 status:** not yet tested in-game (1.1.0 runs in-game on players' PCs; the server-side
+> fix hasn't been tried on a dedicated server yet). See the [changelog](CHANGELOG.md).
 
 ### For the NINE pack's `assets.txt`
 
@@ -50,6 +51,7 @@ mods|ninefix-<version>.jar|<sha1 from the release notes>|https://github.com/mojo
   `Told GeckoLib to skip 'mining_and_placing_animations'`.
 - ArPhEx creatures move their legs, and `latest.log` stays small.
 - `Distant Horizons threads capped at 3 (configured: 8)` (numbers depend on the PC).
+- No `[Punchy Glow Definition]` or `[Punchy Glow Render]` lines in `latest.log`.
 - In a spark profile, `RenderTest6Procedure`, `WorldRenderTestProcedure` and FancyMenu's
   `ScreenIdentifierHandler` are close to 0%.
 
@@ -67,6 +69,7 @@ mods|ninefix-<version>.jar|<sha1 from the release notes>|https://github.com/mojo
 | KubeJS | 2101.7.x (verified against 2101.7.2 build 374) |
 | VanillaBackport | 1.1.7.10 |
 | Distant Horizons | 3.x (verified against 3.3.2) |
+| Punchy | 2.8b to 2.8d (verified against each) |
 | The Obsessed | 1.5.2d |
 
 All of these mods are optional. Every fix is defensive: if its mod is missing, or a future version
@@ -102,7 +105,8 @@ This project is not affiliated with or endorsed by the authors of the mods it fi
 [Mining & Placing Animations](https://modrinth.com/mod/mining_and_placing_animations),
 [FancyMenu](https://github.com/Keksuccino/FancyMenu), SkillExpNotifier,
 [KubeJS](https://github.com/KubeJS-Mods/KubeJS), VanillaBackport,
-[Distant Horizons](https://gitlab.com/distant-horizons-team/distant-horizons) and The Obsessed.
+[Distant Horizons](https://gitlab.com/distant-horizons-team/distant-horizons),
+[Punchy!](https://modrinth.com/mod/punchy-fpa) (PunchyDevGuy) and The Obsessed.
 It contains none of their code. It only adjusts behaviour at runtime. All credit for those mods goes
 to their authors.
 

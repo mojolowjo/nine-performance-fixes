@@ -73,6 +73,11 @@ public final class Settings {
                             + "distant terrain. Cap it at half your CPU threads (its own default). Doesn't change "
                             + "its config file.",
                     List.of()),
+            new Fix("punchyDebugLog", true,
+                    "Punchy: stop debug log spam",
+                    "Punchy writes a debug line (\"[Punchy Glow Definition] ...\") to the log about once a second "
+                            + "per arm, and has no setting to turn it off. Don't write it.",
+                    List.of("PunchyDebugLogMixin")),
             new Fix("obsessedNetworkFix", true,
                     "The Obsessed: stop the network flood (server)",
                     "The Obsessed resends each player's data dozens of times per tick, flooding the connection. "

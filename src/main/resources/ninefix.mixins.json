@@ -16,6 +16,7 @@
     "FancyMenuRegistryMixin",
     "FancyMenuScreenIdMixin",
     "KubeJSHighlightMixin",
+    "PunchyDebugLogMixin",
     "SkillExpToastConfigMixin",
     "SkillExpWatcherMixin",
     "VanillaBackportLeafTintMixin"
